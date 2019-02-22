@@ -1,0 +1,192 @@
+mysql> create database sewamobil;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use sewamobil;
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| hewan              |
+| latihan01          |
+| mahasiswa          |
+| mysql              |
+| pegawai            |
+| performance_schema |
+| sekolah            |
+| sewamobil          |
+| test               |
++--------------------+
+10 rows in set (0.10 sec)
+
+mysql> create table sewamobil
+    -> (kode char(25) primary key,
+    -> jenis varchar(25) not null,
+    -> merk varchar(25) not null,
+    -> tarif varchar(25) not null,
+    -> nopol varchar(25) not null);
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> desc sewamobil;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| kode  | char(25)    | NO   | PRI | NULL    |       |
+| jenis | varchar(25) | NO   |     | NULL    |       |
+| merk  | varchar(25) | NO   |     | NULL    |       |
+| tarif | varchar(25) | NO   |     | NULL    |       |
+| nopol | varchar(25) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.15 sec)
+
+mysql> insert into sewamobil
+    -> values
+    -> ("M001", "SEDAN", "BMW ES", "500000", "BG1234AA"),
+    -> ("M002", "SEDAn", "HONDA", "350000", "BG2345BB"),
+    -> ("M003", "BUS", "MERCEDEZ", "1000000", "BG3456CC"),
+    -> ("M004", "BUS", "DYNA", "800000", "BG8433DD"),
+    -> ("M005", "TRUCK", "HYNO ZX", "1500000", "BG4638EE"),
+    -> ("M006", "TRUCK", "DYNA X1", "1500000", "BG8473FF");
+Query OK, 6 rows affected (0.07 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from sewamobil;
++------+-------+----------+---------+----------+
+| kode | jenis | merk     | tarif   | nopol    |
++------+-------+----------+---------+----------+
+| M001 | SEDAN | BMW ES   | 500000  | BG1234AA |
+| M002 | SEDAn | HONDA    | 350000  | BG2345BB |
+| M003 | BUS   | MERCEDEZ | 1000000 | BG3456CC |
+| M004 | BUS   | DYNA     | 800000  | BG8433DD |
+| M005 | TRUCK | HYNO ZX  | 1500000 | BG4638EE |
+| M006 | TRUCK | DYNA X1  | 1500000 | BG8473FF |
++------+-------+----------+---------+----------+
+6 rows in set (0.00 sec)
+
+mysql> create table sewamobil01
+    -> (kode char (25) primary key,
+    -> nama varchar(25) not null,
+    -> kontak varchar (25) not null,
+    -> alamat varchar(25) not null,
+    -> kota varchar(25) not null,
+    -> kodepos varchar(25) not null,
+    -> telepon varchar(25) not null);
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> desc sewamobil01;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| kode    | char(25)    | NO   | PRI | NULL    |       |
+| nama    | varchar(25) | NO   |     | NULL    |       |
+| kontak  | varchar(25) | NO   |     | NULL    |       |
+| alamat  | varchar(25) | NO   |     | NULL    |       |
+| kota    | varchar(25) | NO   |     | NULL    |       |
+| kodepos | varchar(25) | NO   |     | NULL    |       |
+| telepon | varchar(25) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+7 rows in set (0.11 sec)
+
+mysql> insert into sewamobil01
+    -> values
+    -> ("P001", "PT FOX RIVER", "HENDRA", "JL. JEND SUDRIMAN 657", "BENGKULU", "30245", "1234567"),
+    -> ("P002", "CV FOXCON", "IWAN", "JL. WAHID HASYIM 743", "JAKARTA", "73429", "234567"),
+    -> ("P003", "PT FARMACOM", "YANI", "JL. AHMAD DAHLAN 45", "LAMPUNG", "28349", "3334445");
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from sewamobil01;
++------+--------------+--------+-----------------------+----------+---------+---------+
+| kode | nama         | kontak | alamat                | kota     | kodepos | telepon |
++------+--------------+--------+-----------------------+----------+---------+---------+
+| P001 | PT FOX RIVER | HENDRA | JL. JEND SUDRIMAN 657 | BENGKULU | 30245   | 1234567 |
+| P002 | CV FOXCON    | IWAN   | JL. WAHID HASYIM 743  | JAKARTA  | 73429   | 234567  |
+| P003 | PT FARMACOM  | YANI   | JL. AHMAD DAHLAN 45   | LAMPUNG  | 28349   | 3334445 |
++------+--------------+--------+-----------------------+----------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> create table sewamobil02
+    -> (nofaktursewa char(25) not null,
+    -> kodepelanggan varchar(25) not null,
+    -> tglsewa varchar(25) not null,
+    -> kodemobil varchar(25) not null,
+    -> lamasewa varchar(25) not null,
+    -> uangmuka varchar(25) not null);
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> desc sewamobil02;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| nofaktursewa  | char(25)    | NO   |     | NULL    |       |
+| kodepelanggan | varchar(25) | NO   |     | NULL    |       |
+| tglsewa       | varchar(25) | NO   |     | NULL    |       |
+| kodemobil     | varchar(25) | NO   |     | NULL    |       |
+| lamasewa      | varchar(25) | NO   |     | NULL    |       |
+| uangmuka      | varchar(25) | NO   |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+6 rows in set (0.10 sec)
+
+mysql> insert into sewamobil02
+    -> values
+    -> ("F001", "P001", "2008-12-01", "M001", "2", "200000"),
+    -> ("F001", "P001", "2008-12-01", "M003", "2", "200000"),
+    -> ("F002","P002", "2008-12-02", "M002", "1", "100000");
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from sewamobil02;
++--------------+---------------+------------+-----------+----------+----------+
+| nofaktursewa | kodepelanggan | tglsewa    | kodemobil | lamasewa | uangmuka |
++--------------+---------------+------------+-----------+----------+----------+
+| F001         | P001          | 2008-12-01 | M001      | 2        | 200000   |
+| F001         | P001          | 2008-12-01 | M003      | 2        | 200000   |
+| F002         | P002          | 2008-12-02 | M002      | 1        | 100000   |
++--------------+---------------+------------+-----------+----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select sewamobil.kode, sewamobil.jenis, sewamobil.merk, sewamobil02.nofaktursewa, sewamobil02.tglsewa, sewamobil02.lamasewa
+    -> from sewamobil
+    -> left join sewamobil02
+    -> on sewamobil.kode=sewamobil02.kodemobil;
++------+-------+----------+--------------+------------+----------+
+| kode | jenis | merk     | nofaktursewa | tglsewa    | lamasewa |
++------+-------+----------+--------------+------------+----------+
+| M001 | SEDAN | BMW ES   | F001         | 2008-12-01 | 2        |
+| M002 | SEDAn | HONDA    | F002         | 2008-12-02 | 1        |
+| M003 | BUS   | MERCEDEZ | F001         | 2008-12-01 | 2        |
+| M004 | BUS   | DYNA     | NULL         | NULL       | NULL     |
+| M005 | TRUCK | HYNO ZX  | NULL         | NULL       | NULL     |
+| M006 | TRUCK | DYNA X1  | NULL         | NULL       | NULL     |
++------+-------+----------+--------------+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select sewamobil02.nofaktursewa, sewamobil01.nama, sewamobil02.tglsewa, sewamobil.jenis, sewamobil.merk, sewamobil02.lamasewa, sewamobil02.uangmuka
+    -> from sewamobil
+    -> inner join sewamobil02 on sewamobil.kode=sewamobil02.kodemobil
+    -> inner join sewamobil01 on sewamobil02.kodepelanggan=sewamobil01.kode;
++--------------+--------------+------------+-------+----------+----------+----------+
+| nofaktursewa | nama         | tglsewa    | jenis | merk     | lamasewa | uangmuka |
++--------------+--------------+------------+-------+----------+----------+----------+
+| F001         | PT FOX RIVER | 2008-12-01 | SEDAN | BMW ES   | 2        | 200000   |
+| F001         | PT FOX RIVER | 2008-12-01 | BUS   | MERCEDEZ | 2        | 200000   |
+| F002         | CV FOXCON    | 2008-12-02 | SEDAn | HONDA    | 1        | 100000   |
++--------------+--------------+------------+-------+----------+----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select sewamobil01.nama, sewamobil01.kota, sewamobil02.nofaktursewa, sewamobil02.tglsewa, sewamobil02.kodemobil, sewamobil02.lamasewa, sewamobil02.uangmuka
+    -> from sewamobil01
+    -> left join sewamobil02
+    -> on sewamobil01.kode=sewamobil02.kodepelanggan;
++--------------+----------+--------------+------------+-----------+----------+----------+
+| nama         | kota     | nofaktursewa | tglsewa    | kodemobil | lamasewa | uangmuka |
++--------------+----------+--------------+------------+-----------+----------+----------+
+| PT FOX RIVER | BENGKULU | F001         | 2008-12-01 | M001      | 2        | 200000   |
+| PT FOX RIVER | BENGKULU | F001         | 2008-12-01 | M003      | 2        | 200000   |
+| CV FOXCON    | JAKARTA  | F002         | 2008-12-02 | M002      | 1        | 100000   |
+| PT FARMACOM  | LAMPUNG  | NULL         | NULL       | NULL      | NULL     | NULL     |
++--------------+----------+--------------+------------+-----------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql>
